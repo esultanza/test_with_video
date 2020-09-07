@@ -28,4 +28,15 @@ class BrowserTests extends TestBase {
         $("html").shouldHave(text("wikipedia.org"));
     }
 
+    @Test
+    @Description("Google test, we look for wikipedia")
+    @DisplayName("Successful search for wikipedia in google")
+    void negativeSearch() {
+        open("http://ya.ru");
+
+        $("#text").val("wikipedia").pressEnter();
+
+        $("html").shouldHave(text("wikipedia1.org"));
+    }
+
 }
