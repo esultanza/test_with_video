@@ -13,13 +13,13 @@ import static com.codeborne.selenide.Selenide.open;
 
 
 @Epic("QA.GURU automation course")
-@Story("Google tests with video")
-@Tag("google")
+@Story("Search tests with video")
 class BrowserTests extends TestBase {
 
     @Test
-    @Description("Google test, we look for wikipedia")
-    @DisplayName("Successful search for wikipedia in google")
+    @Tag("yandex")
+    @Description("Yandex test, we look for wikipedia")
+    @DisplayName("Successful search for wikipedia in yandex")
     void successfulSearch() {
         open("http://ya.ru");
 
@@ -29,14 +29,15 @@ class BrowserTests extends TestBase {
     }
 
     @Test
-    @Description("Google test, we look for wikipedia")
-    @DisplayName("Successful search for wikipedia in google")
+    @Tag("google")
+    @Description("Google test, we look for model of the universe in material statement")
+    @DisplayName("Failed search for model of the universe in google")
     void negativeSearch() {
-        open("http://ya.ru");
+        open("http://google.ru");
 
-        $("#text").val("wikipedia").pressEnter();
+        $("#q").val("model of the universe").pressEnter();
 
-        $("html").shouldHave(text("wikipedia1.org"));
+        $("html").shouldHave(text("model of the universe"));
     }
 
 }
