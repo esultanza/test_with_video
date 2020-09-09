@@ -35,7 +35,7 @@ class BrowserTests extends TestBase {
     void negativeSearch() {
         open("http://google.ru");
 
-        $(byName("q")).val("model of the universe").pressEnter();
+        $(byTitle("Поиск")).val("model of the universe").pressEnter();
 
         $("html").shouldHave(text("model of the universe"));
     }
