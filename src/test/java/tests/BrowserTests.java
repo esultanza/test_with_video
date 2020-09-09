@@ -18,24 +18,12 @@ class BrowserTests extends TestBase {
 
     @Test
     @Tag("yandex")
-    @Description("Yandex test, we look for kinopoisk")
-    @DisplayName("Successful search for wikipedia in yandex")
+    @Description("Yandex test, we look for model of the universe in material statement")
+    @DisplayName("Successful search for model of the universe in yandex")
     void successfulSearch() {
         open("http://ya.ru");
 
-        $("#text").val("kinopoisk").pressEnter();
-
-        $("html").shouldHave(text("kinopoisk.ru"));
-    }
-
-    @Test
-    @Tag("google")
-    @Description("Google test, we look for model of the universe in material statement")
-    @DisplayName("Failed search for model of the universe in google")
-    void negativeSearch() {
-        open("http://google.ru");
-
-        $(byTitle("Поиск")).val("model of the universe").pressEnter();
+        $("#text").val("model of the universe").pressEnter();
 
         $("html").shouldHave(text("model of the universe"));
     }
