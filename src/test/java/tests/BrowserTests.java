@@ -31,11 +31,11 @@ class BrowserTests extends TestBase {
     @Test
     @Tag("google")
     @Description("Google test, we look for model of the universe in material statement")
-    @DisplayName("Successful search for model of the universe in google")
+    @DisplayName("Failed search for model of the universe in google")
     void negativeSearch() {
         open("http://google.ru");
 
-        $(byName("q")).val("model of the universe").pressEnter();
+        $("#q").val("model of the universe").pressEnter();
 
         $("html").shouldHave(text("model of the universe"));
     }
